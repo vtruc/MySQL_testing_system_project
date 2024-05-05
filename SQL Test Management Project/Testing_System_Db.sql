@@ -1,14 +1,18 @@
+-- Active: 1714673221676@@127.0.0.1@3306@testing_system_db
+DROP DATABASE IF EXISTS Testing_System_Db;
 CREATE DATABASE Testing_System_Db;
 USE Testing_System_Db;
 CREATE TABLE Department(
     DepartmentID        INT PRIMARY KEY AUTO_INCREMENT,    
     DepartmentName      VARCHAR(50)
 );
-CREATE TABLE UserPosition(
+DROP TABLE IF EXISTS UserPosition;
+CREATE TABLE `Position`(
     PositionID          INT PRIMARY KEY AUTO_INCREMENT,
     PositionName        VARCHAR(50)
 );
-CREATE TABLE UserAccount(
+DROP TABLE IF EXISTS UserAccount;
+CREATE TABLE `Account`(
     AccountID           INT PRIMARY KEY AUTO_INCREMENT,
     Email               VARCHAR(50),
     Username            VARCHAR(50),
@@ -17,7 +21,8 @@ CREATE TABLE UserAccount(
     PositionID          INT,
     CreateDate          DATE      
 );
-CREATE TABLE UserGroup(
+DROP TABLE IF EXISTS UserGroup;
+CREATE TABLE `Group`(
     GroupID             INT PRIMARY KEY AUTO_INCREMENT,
     GroupName           VARCHAR(50),
     CreatorID           INT,
@@ -25,7 +30,7 @@ CREATE TABLE UserGroup(
 );
 CREATE TABLE GroupAccount(
     GroupID             INT PRIMARY KEY,
-    AccountID           INT, 
+    AccountID           VARCHAR(50), 
     JoinDate            DATE
 );
 CREATE TABLE TypeQuestion(
